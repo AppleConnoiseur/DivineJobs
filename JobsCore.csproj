@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9AFBCCF5-1DBE-4108-A43D-0F82E08C4183}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DivineJobs.Core</RootNamespace>
+    <AssemblyName>JobsCore</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\DivineJobsCore\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\DivineJobsCore\Assemblies\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\839005762\Assemblies\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abilities\AbilityData.cs" />
+    <Compile Include="Abilities\AbilityData_Verb.cs" />
+    <Compile Include="Abilities\Components\Effects\AbilityEffectWorker.cs" />
+    <Compile Include="Abilities\Components\Effects\AbilityEffect_CastVerbOnce.cs" />
+    <Compile Include="Abilities\Components\Targeting\AbilityTargetingWorker.cs" />
+    <Compile Include="Abilities\Components\Targeting\AbilityTargeting_SingleTarget.cs" />
+    <Compile Include="Abilities\IAbilityComponentExplanation.cs" />
+    <Compile Include="Defs\DivineAbilityDef.cs" />
+    <Compile Include="Defs\DivineJobDef.cs" />
+    <Compile Include="Defs\DivineJobResourceDef.cs" />
+    <Compile Include="Defs\DivineJobTagDef.cs" />
+    <Compile Include="HarmonyPatches_Main.cs" />
+    <Compile Include="HarmonyPatches_Misc.cs" />
+    <Compile Include="HarmonyPatches_Pawn.cs" />
+    <Compile Include="JobRequirements\JobRequirementWorker.cs" />
+    <Compile Include="JobRequirements\JobRequirement_AddedParts.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Hediff.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Job.cs" />
+    <Compile Include="JobRequirements\JobRequirement_JobWithTag.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Not.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Record.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Or.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Race.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Skill.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Technology.cs" />
+    <Compile Include="JobRequirements\JobRequirement_Trait.cs" />
+    <Compile Include="JobResources\JobResource_Numerical.cs" />
+    <Compile Include="Logic\DivineJobLevelStage.cs" />
+    <Compile Include="Logic\ExponentialGraph.cs" />
+    <Compile Include="JobData\JobData.cs" />
+    <Compile Include="JobResources\JobResource.cs" />
+    <Compile Include="Logic\IJobStageModifiers.cs" />
+    <Compile Include="Logic\LinearGraph.cs" />
+    <Compile Include="Logic\MathGraph.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThingComps\DivineJobsComp.cs" />
+    <Compile Include="ThingComps\Properties\CompProperties_DivineJobs.cs" />
+    <Compile Include="UI\DivineJobsUI.cs" />
+    <Compile Include="UI\GraphView.cs" />
+    <Compile Include="UI\ITab_DivineJobs.cs" />
+    <Compile Include="UI\SectionRect.cs" />
+    <Compile Include="Utilities\DivineJobUtility.cs" />
+    <Compile Include="Utilities\SpecialCharacters.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AI\AbilityAI\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
